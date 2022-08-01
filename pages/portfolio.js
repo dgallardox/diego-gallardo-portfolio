@@ -12,7 +12,7 @@ export default function Portfolio(posts) {
 }
 
 export async function getStaticProps() {
-  const { loading, error, data } = await client.query({
+  const { data } = await client.query({
       query: gql`
         query getPostTitles {
           posts {
@@ -24,8 +24,6 @@ export async function getStaticProps() {
         `,
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error</p>;
 
   return {
     props: {
