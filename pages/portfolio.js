@@ -11,22 +11,22 @@ export default function Portfolio(posts) {
   );
 }
 
-export async function getStaticProps() {
-  const { data } = await client.query({
-      query: gql`
-        query getPostTitles {
-          posts {
-            nodes {
-              title
-            }
-          }
-        }
-        `,
-  });
+// export async function getStaticProps() {
+//   const  data  = await client.query({
+//       query: gql`
+//         query getPostTitles {
+//           posts {
+//             nodes {
+//               title
+//             }
+//           }
+//         }
+//         `,
+//   });
 
 
-  return {
-    props: {
-      posts: data.posts.nodes,
-  }};
-}
+//   return {
+//     props: {
+//       posts: data.posts.nodes,
+//   }};
+// }
