@@ -1,13 +1,6 @@
 import { gql } from "@apollo/client";
-// import client from "../components/apolloClient";
+import client from "../components/ApolloClient";
 import DOMPurify from "isomorphic-dompurify";
-
-import { ApolloClient, InMemoryCache } from "@apollo/client";
-
-const client = new ApolloClient({
-  uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
-  cache: new InMemoryCache(),
-});
 
 export default function Portfolio({ posts }) {
   console.log(posts);
@@ -35,7 +28,7 @@ export default function Portfolio({ posts }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await client.query({
+  const res = await client.query({
     query: gql`
       query getPostTitles {
         posts {
@@ -48,6 +41,7 @@ export async function getStaticProps() {
       }
     `,
   });
+  const { data } = res;
 
   return {
     props: {
