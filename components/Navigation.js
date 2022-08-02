@@ -2,7 +2,10 @@ import Link from "next/link";
 
 export default function Navigation() {
 
-  const pages = ["home", "about", "portfolio", "blog"];
+  const pages = {
+    pages: ["home", "about", "portfolio", "blog"],
+    routes: ["/", "/about", "/portfolio", "/blog"],
+  }
 
   const navStyles = {
     li: "mr-6",
@@ -13,10 +16,10 @@ export default function Navigation() {
     <>
       <nav className="fixed w-screen">
         <ul className="flex-1 flex justify-center mr-auto">
-          {pages.map((page) => (
+          {pages.pages.map((page, i) => (
             <>
               <li className={navStyles.li}>
-                <Link href="/">
+                <Link href={pages.routes[i]}>
                   <a className={navStyles.a}>{page}</a>
                 </Link>
               </li>
@@ -25,31 +28,5 @@ export default function Navigation() {
         </ul>
       </nav>
     </>
-    // <>
-    //   <nav className="fixed w-screen">
-    //     <ul className="flex-1 flex justify-center mr-auto">
-    //       <li className={navStyles.li}>
-    //         <Link href="/">
-    //           <a className={navStyles.a}>Home</a>
-    //         </Link>
-    //       </li>
-    //       <li className={navStyles.li}>
-    //         <Link href="/about">
-    //           <a className={navStyles.a}>About</a>
-    //         </Link>
-    //       </li>
-    //       <li className={navStyles.li}>
-    //         <Link href="/portfolio">
-    //           <a className={navStyles.a}>Portfolio</a>
-    //         </Link>
-    //       </li>
-    //       <li className={navStyles.li}>
-    //         <Link href="/blog">
-    //           <a className={navStyles.a}>Blog</a>
-    //         </Link>
-    //       </li>
-    //     </ul>
-    //   </nav>
-    // </>
   );
 }
