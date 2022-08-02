@@ -1,5 +1,5 @@
 import { gql } from "@apollo/client";
-import client from "../components/ApolloClient";
+import client from "../components/ApolloClient.js";
 import DOMPurify from "isomorphic-dompurify";
 
 export default function Portfolio({ posts }) {

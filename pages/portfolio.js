@@ -1,5 +1,3 @@
-import { gql } from "@apollo/client";
-import client from "../components/ApolloClient";
 
 export default function Portfolio(posts) {
   console.log(posts);
