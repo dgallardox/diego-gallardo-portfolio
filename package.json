@@ -9,6 +9,10 @@
     "lint": "next lint",
     "kill": "kill -9 $(lsof -t -i:3000)"
   },
+  "engines": {
+    "node": "15.13.0",
+    "npm": "7.7.6"
+  },
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "glob": "^7.1.7",
