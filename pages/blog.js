@@ -41,11 +41,11 @@ export async function getStaticProps() {
     }
   `;
 
-  const { data } = await client.query({
+  const res = await client.query({
     query: GET_POSTS,
   });
 
-  const posts = data?.posts?.nodes;
+  const posts = res?.data?.posts?.nodes;
 
   return {
     props: {
