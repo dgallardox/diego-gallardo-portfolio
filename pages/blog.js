@@ -1,6 +1,13 @@
 import { gql } from "@apollo/client";
-import client from "../components/apolloClient";
+// import client from "../components/apolloClient";
 import DOMPurify from "isomorphic-dompurify";
+
+import { ApolloClient, InMemoryCache } from "@apollo/client";
+
+const client = new ApolloClient({
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
+  cache: new InMemoryCache(),
+});
 
 export default function Portfolio({ posts }) {
   console.log(posts);
