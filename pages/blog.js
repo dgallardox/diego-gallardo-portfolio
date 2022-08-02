@@ -28,7 +28,7 @@ export default function Portfolio({ posts }) {
 }
 
 export async function getStaticProps() {
-  const res = await client.query({
+  const data = await client.query({
     query: gql`
       query getPostTitles {
         posts {
@@ -41,11 +41,10 @@ export async function getStaticProps() {
       }
     `,
   });
-  const { data } = res;
 
   return {
     props: {
-      posts: data.posts.nodes,
+      posts: data.data.posts.nodes,
     },
   };
 }
