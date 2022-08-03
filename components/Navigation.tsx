@@ -3,13 +3,13 @@ import Link from "next/link";
 export default function Navigation(): JSX.Element {
 
   const pages = {
-    pages: ["home", "about", "portfolio", "blog"],
-    routes: ["/", "/about", "/portfolio", "/blog"],
+    pages: ["HOME", "ABOUT", "PORTFOLIO", "CONTACT"],
+    routes: ["/", "/about", "/portfolio", "/contact"],
   }
 
   const navStyles = {
     li: "mr-6",
-    a: "hover:text-blue-800 hover:underline decoration-solid",
+    a: "hover:text-blue-800 hover:underline hover:underline-offset-4 decoration-solid",
   };
 
   return (
