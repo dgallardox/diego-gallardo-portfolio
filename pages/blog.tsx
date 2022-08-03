@@ -1,19 +1,19 @@
 import { gql } from "@apollo/client";
 import client from "../components/apolloClient";
 import DOMPurify from "isomorphic-dompurify";
+import { GetStaticProps } from "next";
+import { NextPage } from 'next';
 
-export default function Portfolio({ posts }) {
-  console.log(posts);
+export default function Portfolio({ posts }): JSX.Element {
 
-  function sanitizer(postContent) {
-    console.log(`sanitized: ${postContent}`)
-    return DOMPurify.sanitize(postContent);
+  function sanitizer(dirtyHTML: string): string {
+    return DOMPurify.sanitize(dirtyHTML);
   }
 
   return (
     <>
       <div className="text-center">
-        <div className="text-4xl font-bold">Blog</div>
+        <div className="text-3xl font-bold">Blog</div>
         {posts.map((post) => (
           <>
             <div key={post.id}>{post.title}</div>
@@ -27,8 +27,8 @@ export default function Portfolio({ posts }) {
   );
 }
 
-export async function getStaticProps() {
-  const data  = await client.query({
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await client.query({
     query: gql`
       query getPostTitles {
         posts {

@@ -4,7 +4,9 @@ export default function Portfolio(posts) {
 
   return (
     <>
-      <div className="text-center">Portfolio</div>
+      <div className="text-center">
+        <div className="text-3xl font-bold">Portfolio</div>
+      </div>
     </>
   );
 }
