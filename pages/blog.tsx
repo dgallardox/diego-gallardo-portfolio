@@ -12,14 +12,16 @@ export default function Portfolio({ posts }): JSX.Element {
 
   return (
     <>
-      <div className="text-center">
-        <div className="text-3xl font-bold">Blog</div>
+      <div className="text-center pt-20">
+        <div className="text-3xl font-bold font">Blog</div>
         {posts.map((post) => (
           <>
-            <div key={post.id}>{post.title}</div>
-            <div
-              dangerouslySetInnerHTML={{ __html: sanitizer(post.content) }}
-            />
+            <div className="pt-5">
+              <div key={post.id}>{post.title}</div>
+              <div
+                dangerouslySetInnerHTML={{ __html: sanitizer(post.content) }}
+              />
+            </div>
           </>
         ))}
       </div>

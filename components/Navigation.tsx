@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function Navigation() {
+export default function Navigation(): JSX.Element {
 
   const pages = {
     pages: ["home", "about", "portfolio", "blog"],
@@ -14,7 +14,7 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className="fixed w-screen">
+      <nav className="fixed w-screen pt-5">
         <ul className="flex-1 flex justify-center mr-auto">
           {pages.pages.map((page, i) => (
             <>

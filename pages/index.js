@@ -5,10 +5,10 @@ export default function Home() {
 
   return (
     <>
-      <div className="">
+      <div className="pt-20">
         <main className="text-center">
           <div className="text-6xl font-bold">Diego Gallardo</div>
-          <div className="text-3xl">Portfolio</div>
+          <div className="text-4xl pt-5">Portfolio</div>
         </main>
       </div>
     </>
