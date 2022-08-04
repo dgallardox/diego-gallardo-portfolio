@@ -38,7 +38,7 @@ export default function Home({ posts }): JSX.Element {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const { data } = await client.query({
     query: getPostData,
   });
