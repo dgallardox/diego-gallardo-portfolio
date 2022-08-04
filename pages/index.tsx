@@ -4,14 +4,13 @@ import DOMPurify from "isomorphic-dompurify";
 import { GetStaticProps } from "next";
 import client from "../api/apolloClient";
 import { getPostData } from "../api/quieries";
-import { useEffect } from 'react';
 
 export default function Home({ posts }): JSX.Element {
   
   function sanitizer(dirtyHTML: string): string {
     return DOMPurify.sanitize(dirtyHTML);
   }
-  
+
   return (
     <>
       <div className="pt-20">
