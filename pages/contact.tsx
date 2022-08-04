@@ -70,8 +70,8 @@ export default function Contact(): JSX.Element {
                 type="submit"
                 onClick={sendEmail}
               />
-                Send
-
+              Send
+              
             </div>
           </form>
         </div>
