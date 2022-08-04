@@ -1,4 +1,32 @@
+import client from "../api/apolloClient";
+import { gql, useMutation } from "@apollo/client";
+
 export default function Contact(): JSX.Element {
+  const sendEmail = (e) => {
+    e.preventDefault();
+    client.mutate({
+      mutation: gql`
+        mutation SEND_EMAIL {
+          sendEmail(
+            input: {
+              from: "diego.gallardo@wpengine.com"
+              subject: "test email"
+              body: "test email rat"
+              clientMutationId: "test"
+            }
+          ) {
+            to
+            origin
+            sent
+            message
+          }
+        }
+      `,
+    });
+
+    console.log(sendEmail);
+  };
+
   return (
     <>
       <div className="text-center pt-20">
@@ -36,6 +64,7 @@ export default function Contact(): JSX.Element {
               <button
                 className="border-solid border-4 rounded-lg"
                 type="submit"
+                onClick={sendEmail}
               >
                 Send
               </button>

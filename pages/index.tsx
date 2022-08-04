@@ -2,15 +2,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import DOMPurify from "isomorphic-dompurify";
 import { GetStaticProps } from "next";
-import client from "../components/apolloClient";
-import { gql } from "@apollo/client";
+import client from "../api/apolloClient";
+import { getPostData } from "../api/quieries";
+import { useEffect } from 'react';
 
 export default function Home({ posts }): JSX.Element {
   
   function sanitizer(dirtyHTML: string): string {
     return DOMPurify.sanitize(dirtyHTML);
   }
-
+  
   return (
     <>
       <div className="pt-20">
@@ -39,23 +40,13 @@ export default function Home({ posts }): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await client.query({
-    query: gql`
-      query getPostTitles {
-        posts {
-          nodes {
-            id
-            title
-            content
-          }
-        }
-      }
-    `,
+  const { data } = await client.query({
+    query: getPostData,
   });
 
   return {
     props: {
-      posts: data.data.posts.nodes,
+      posts: data.posts.nodes,
     },
   };
 };
