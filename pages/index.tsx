@@ -14,7 +14,6 @@ export default function Home({ posts }): JSX.Element {
   return (
     <>
       <div className="pt-20">
-        <p>testing</p>
         <main className="text-center text-amber-50 bg-slate-600 pt-10 pb-10">
           <div className="text-6xl font-bold">Diego Gallardo</div>
           <div className="text-4xl pt-5">Portfolio</div>
