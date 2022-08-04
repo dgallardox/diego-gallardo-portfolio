@@ -4,6 +4,7 @@ import DOMPurify from "isomorphic-dompurify";
 import { GetStaticProps } from "next";
 import client from "../api/apolloClient";
 import { getPostData } from "../api/quieries";
+import { getDataFromTree } from "@apollo/client/react/ssr";
 
 export default function Home({ posts }): JSX.Element {
   
@@ -38,7 +39,7 @@ export default function Home({ posts }): JSX.Element {
   );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const { data } = await client.query({
     query: getPostData,
   });
