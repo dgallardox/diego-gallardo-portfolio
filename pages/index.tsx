@@ -1,15 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import DOMPurify from "isomorphic-dompurify";
 import { GetStaticProps } from "next";
-import client from "../api/apolloClient";
+import client from "../api/apollo-client";normalizeReadFieldOptions
 import { getPostData } from "../api/quieries";
+import { normalizeReadFieldOptions } from '@apollo/client/cache/inmemory/policies';
+import sanitizer from '../servcies/Sanitizer';
+import Sanitizer from '../servcies/Sanitizer';
 
 export default function Home({ posts }): JSX.Element {
-  
-  function sanitizer(dirtyHTML: string): string {
-    return DOMPurify.sanitize(dirtyHTML);
-  }
 
   return (
     <>
@@ -26,9 +24,7 @@ export default function Home({ posts }): JSX.Element {
                 <div className="font-bold" key={post.id}>
                   {post.title}
                 </div>
-                <div
-                  dangerouslySetInnerHTML={{ __html: sanitizer(post.content) }}
-                />
+                <Sanitizer dirtyHTML={post.content} />
               </div>
             </>
           ))}

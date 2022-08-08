@@ -1,4 +1,4 @@
-import client from "../api/apolloClient";
+import client from "../api/apollo-client";
 import { gql } from "@apollo/client";
 
 export default function Contact(): JSX.Element {
@@ -79,3 +79,4 @@ export default function Contact(): JSX.Element {
     </>
   );
 }
+

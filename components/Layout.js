@@ -1,6 +1,6 @@
 import Navigation from "./Navigation";
 import Footer from "./Footer";
-import client from "../api/apolloClient";
+import client from "../api/apollo-client";
 import { ApolloProvider } from "@apollo/client";
 
 export default function Layout({ children }) {
