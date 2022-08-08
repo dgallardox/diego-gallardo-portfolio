@@ -4,10 +4,10 @@ import { setContext } from "@apollo/client/link/context";
 
 const link = createHttpLink({
   uri: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT,
-  credentials: "include",
-  fetchOptions: {
-    mode: "no-cors",
-  },
+  // credentials: "include",
+  // fetchOptions: {
+  //   mode: "no-cors",
+  // },
 });
 
 
