@@ -1,11 +1,9 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { GetStaticProps } from "next";
-import client from "../api/apollo-client";normalizeReadFieldOptions
-import { getPostData } from "../api/quieries";
-import { normalizeReadFieldOptions } from '@apollo/client/cache/inmemory/policies';
-import sanitizer from '../servcies/Sanitizer';
-import Sanitizer from '../servcies/Sanitizer';
+import client from "../apollo/apollo-client";
+import { getPostData } from "../apollo/quieries";
+import Sanitizer from '../services/Sanitizer';
 
 export default function Home({ posts }): JSX.Element {
 

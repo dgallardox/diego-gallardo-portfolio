@@ -1,4 +1,4 @@
-import client from "../api/apollo-client";
+import client from "../apollo/apollo-client";
 import { gql } from "@apollo/client";
 
 export default function Contact(): JSX.Element {
