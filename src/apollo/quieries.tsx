@@ -11,3 +11,12 @@ export const getPostData = gql`
     }
   }
 `;
+
+export const aboutMePage = gql`
+  query getAboutMePage {
+    page(id: "cG9zdDoxMA==") {
+      title
+      content
+    }
+  }
+`;
