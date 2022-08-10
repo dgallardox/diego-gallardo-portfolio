@@ -20,3 +20,13 @@ export const aboutMePage = gql`
     }
   }
 `;
+
+export const searchQuery = ( keyword ) => gql`
+  query search {
+    posts(where: { search: "hello" }) {
+      nodes {
+        title
+      }
+    }
+  }
+`;

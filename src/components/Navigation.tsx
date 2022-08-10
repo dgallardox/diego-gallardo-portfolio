@@ -1,11 +1,12 @@
 import Link from "next/link";
+import client from "../apollo/apollo-client";
 
 export default function Navigation(): JSX.Element {
 
   const pages = {
     pages: ["HOME", "ABOUT", "PORTFOLIO", "CONTACT"],
     routes: ["/", "/about", "/portfolio", "/contact"],
-  }
+  };
 
   const navStyles = {
     li: "mr-6",
@@ -15,7 +16,7 @@ export default function Navigation(): JSX.Element {
   return (
     <>
       <nav className="fixed w-screen pt-5">
-        <ul className="flex-1 flex justify-center mr-auto">
+        <ul className="flex-1 flex justify-center">
           {pages.pages.map((page, i) => (
             <>
               <li className={navStyles.li}>
@@ -25,6 +26,8 @@ export default function Navigation(): JSX.Element {
               </li>
             </>
           ))}
+          <li>
+          </li>
         </ul>
       </nav>
     </>
