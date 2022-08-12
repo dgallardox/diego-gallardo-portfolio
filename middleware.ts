@@ -16,7 +16,6 @@ export function middleware(req: NextRequest) {
   const url = req.nextUrl.clone()
   const normalizedHost = new URL(process.env.PRIMARY_DOMAIN);
   const host = req.headers.get("host");
-
   const isCorrectHostname = host.split(":")[0] === normalizedHost.hostname;
 
 
