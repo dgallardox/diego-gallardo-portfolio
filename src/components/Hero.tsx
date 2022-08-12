@@ -14,12 +14,10 @@ export default function Hero(): JSX.Element {
 
   return (
     <>
-      <div className={ styles.mainDiv }>
+      <div className={styles.mainDiv}>
         <div className={styles.textDiv}>
-          <div className={styles.mainText}>
-            Diego Gallardo <br />
-            <span className={styles.subText}>Portfolio</span>
-          </div>
+          <div className={styles.mainText}>Diego Gallardo</div>
+          <div className={styles.subText}>Portfolio</div>
         </div>
       </div>
       <div className={styles.iconDiv}>

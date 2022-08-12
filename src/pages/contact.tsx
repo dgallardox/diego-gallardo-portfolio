@@ -25,17 +25,26 @@ export default function Contact(): JSX.Element {
     });
   };
 
+  const styles = {
+    pageDiv: "text-left mt-10 border-solid border-2 border-lime-600 w-100",
+    pageTitle:
+      "text-3xl pl-10 mb-5 font-bold border-solid border-2 border-lime-600 w-100",
+    formDiv:
+      "inline-block mr-10 ml-10 mb-10 pt-5 text-left pl-10 pr-10 pb-20 mt-5 border-solid border-2 border-lime-600 w-100",
+    submitButton: "bg-blue-600 rounded-md px-5 py-2",
+  };
+
   return (
     <>
-      <div className="text-center pt-20">
-        <div className="text-3xl font-bold">Contact Form</div>
-        <div className="mr-10 ml-10 mb-10 pt-5 text-left pl-10 pr-10 pb-20 mt-5 border-solid border-4 rounded-lg">
-          
+      <div className={styles.pageDiv}>
+        <div className={styles.pageTitle}>Contact Form</div>
+
+        <div className={styles.formDiv}>
           <form name="contact" method="post" action="/thanks">
             <input type="hidden" name="form-name" value="contact" />
-            <div className="pt-5">
-              
-              <label htmlFor="name">Name</label>
+            <div className="pt-5 border-solid border-2 border-lime-600 w-100">
+              <label htmlFor="name">Name:</label>
+              <br />
               <input
                 className="border-solid border-2 rounded-lg"
                 type="text"
@@ -43,9 +52,9 @@ export default function Contact(): JSX.Element {
                 id="name"
               />
             </div>
-            <div className="pt-5">
-
-              <label htmlFor="email">Email</label>
+            <div className="pt-5 border-solid border-2 border-lime-600 w-100">
+              <label htmlFor="email">Email:</label>
+              <br />
               <input
                 className="border-solid border-4 rounded-lg"
                 type="email"
@@ -53,25 +62,21 @@ export default function Contact(): JSX.Element {
                 id="email"
               />
             </div>
-            <div className="pt-5">
-
-              <label htmlFor="message">Message</label>
+            <div className="pt-5 border-solid border-2 border-lime-600 w-100">
+              <label htmlFor="message">Message:</label>
+              <br />
               <textarea
                 className="border-solid border-4 rounded-lg"
                 name="message"
                 id="message"
               />
             </div>
-            <div className="pt-5">
-
-
+            <div className="pt-5 border-solid border-2 border-lime-600 w-100">
               <input
-                className="border-solid border-4 rounded-lg"
+                className={styles.submitButton}
                 type="submit"
                 onClick={sendEmail}
               />
-              Send
-              
             </div>
           </form>
         </div>
