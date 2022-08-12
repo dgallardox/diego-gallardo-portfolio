@@ -1,23 +1,29 @@
 import { KeyboardArrowDown } from "@mui/icons-material";
 import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
+import { stylesheetInclude } from "sitemap/dist/lib/sitemap-stream";
 
 export default function Hero(): JSX.Element {
-  const STYLES = {};
+  const styles = {
+    mainDiv: "text-white bg-black py-20",
+    textDiv: "table mx-auto",
+    mainText: "text-6xl font-bold",
+    subText: "text-4xl pt-5",
+    iconDiv: "text-center bg-black pt-10 pb-5",
+    icon: "text-white b-0 w-12 h-12",
+  };
 
   return (
     <>
-      <div className="relative bg-black py-20 border-solid border-2 border-lime-600">
-        <div className="table mx-auto border-solid border-2 border-lime-600">
-          <h2 className="text-6xl text-white font-bold border-solid border-2 border-lime-600">
-            Diego Gallardo
-          </h2>
-          <p className="text-4xl text-white pt-5 border-solid border-2 border-lime-600">
-            Portfolio
-          </p>
+      <div className={ styles.mainDiv }>
+        <div className={styles.textDiv}>
+          <div className={styles.mainText}>
+            Diego Gallardo <br />
+            <span className={styles.subText}>Portfolio</span>
+          </div>
         </div>
       </div>
-      <div className="text-white bg-black text-center pt-5 border-solid border-2 border-lime-600">
-        <KeyboardArrowDown className="b-0 w-12 h-12 border-solid border-2 border-lime-600" />
+      <div className={styles.iconDiv}>
+        <KeyboardArrowDown className={styles.icon} />
       </div>
     </>
   );

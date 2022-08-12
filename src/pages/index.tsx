@@ -48,7 +48,7 @@ export default function Home({ posts }) {
           />
         </form>
 
-        <div className="flex justify-start flex-wrap border-solid border-2 border-lime-600">
+        <div className="flex justify-start flex-wrap">
           {posts.map((post) => (
             <>
               <div className=" w-1/3 pt-5 m-5 border-solid border-2 rounded-lg">
