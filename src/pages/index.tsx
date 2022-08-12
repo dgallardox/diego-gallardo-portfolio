@@ -10,24 +10,24 @@ import Hero from "../components/Hero";
 
 
 export default function Home({ posts }) {
-  // const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
-  // async function handleSearch(e) {
-  //   e.preventDefault();
-  //   const { data } = await client.query({
-  //     query: gql`
-  //       query search {
-  //         posts(where: { search: "${searchQuery}" }) {
-  //           nodes {
-  //             title
-  //             content
-  //           }
-  //         }
-  //       }
-  //     `,
-  //   });
-  //   console.log(data.posts.nodes);
-  // }
+  async function handleSearch(e) {
+    e.preventDefault();
+    const { data } = await client.query({
+      query: gql`
+        query search {
+          posts(where: { search: "${searchQuery}" }) {
+            nodes {
+              title
+              content
+            }
+          }
+        }
+      `,
+    });
+    console.log(data.posts.nodes);
+  }
 
   return (
     <>
@@ -35,10 +35,9 @@ export default function Home({ posts }) {
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
-      <Hero />
 
-      {/* <div className="pt-20 text-left pl-10 pr-10 pb-20">
+      <Hero />
+      <div className="pt-20 text-left pl-10 pr-10 pb-20">
         <div className="text-3xl font-bold font">All Posts</div>
         <form onSubmit={(e) => handleSearch(e)}>
           <input
@@ -49,10 +48,10 @@ export default function Home({ posts }) {
           />
         </form>
 
-        <div className="flex justify-between wrap w-100">
+        <div className="flex justify-start flex-wrap border-solid border-2 border-lime-600">
           {posts.map((post) => (
             <>
-              <div className=" w-1/2 p-5 m-5 border-solid border-2 rounded-lg">
+              <div className=" w-1/3 pt-5 m-5 border-solid border-2 rounded-lg">
                 <div className="font-bold" key={post.id}>
                   {post.title}
                 </div>
@@ -61,20 +60,20 @@ export default function Home({ posts }) {
             </>
           ))}
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const { data } = await client.query({
-//     query: getPostData,
-//   });
+export const getStaticProps: GetStaticProps = async () => {
+  const { data } = await client.query({
+    query: getPostData,
+  });
 
-//   return {
-//     props: {
-//       posts: data.posts.nodes,
-//     },
-//     revalidate: 300,
-//   };
-// };
+  return {
+    props: {
+      posts: data.posts.nodes,
+    },
+    revalidate: 300,
+  };
+};
