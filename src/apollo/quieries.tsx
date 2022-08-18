@@ -7,6 +7,7 @@ export const getPostData = gql`
         id
         title
         content
+        slug
       }
     }
   }
